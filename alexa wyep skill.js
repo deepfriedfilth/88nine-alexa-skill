@@ -125,12 +125,13 @@ function whatSong(intent, session, callback) {
         });
 
         res.on("end", function() {
-            var sresponse = JSON.parse(body);
             var songInfo = "";
-            if (sresponse.onNow.song.trackName === "") {
+            try {
+                var song = JSON.parse(body).songs[0];
+                songInfo = "This song is: " + song.title + " by " + song.artist;
+            }
+            catch (e) {
                 songInfo = "I'm sorry, the song information is missing";
-            } else {
-                songInfo = "This song is: " + sresponse.onNow.song.trackName + " by " + sresponse.onNow.song.artistName;
             }
             callback(session.attributes, buildSpeechletResponseWithoutCard(songInfo, "", "true"));
         });

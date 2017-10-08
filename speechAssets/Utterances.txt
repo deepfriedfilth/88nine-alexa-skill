@@ -1,18 +1,15 @@
-Play begin podcast
-Play begin the podcast
-Play begin playing the podcast
-Play start podcast
-Play start the podcast
-Play start playing the podcast
-Play play the podcast
-Play to play
-Play to begin podcast
-Play to begin the podcast
-Play to begin playing the podcast
-Play to start podcast
-Play to start the podcast
-Play to start playing the podcast
-Play to play the podcast
-WhatSong what song is this
-WhatSong who this
-WhatSong who dis
+play play
+play play music
+play begin playing
+play begin playing music
+play start
+play start music
+play play milwaukee music
+play play local music
+play begin playing milwaukee music
+play begin playing local music
+play to start milwaukee music
+play to start local music
+whatSong what song is this
+whatSong who this
+whatSong who dis
