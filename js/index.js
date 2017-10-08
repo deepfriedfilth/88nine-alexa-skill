@@ -108,7 +108,8 @@ function onIntent(intentRequest, session, callback) {
             play(intent, session, callback);
             break;
         default:
-            throw "Invalid intent";
+            play(intent, session, callback);
+            break;
     }
 }
 
@@ -121,7 +122,7 @@ function onSessionEnded(sessionEndedRequest, session) {
 }
 
 function whatSong(intent, session, callback) {
-    var surl = streams[session.attributes['index'] || 0].feed;
+    var surl = "https://radiomilwaukee.org/playlistinfo.php"; //streams[session.attributes['index'] || 0].feed;
 
     https.get(surl, function(res) {
         var body = "";
@@ -207,7 +208,7 @@ function stop(intent, session, callback) {
 }
 
 function play(intent, session, callback) {
-    var url = streams[session.attributes['index'] || 0].url;
+    var url = "https://wyms.streamguys1.com/live"; //streams[session.attributes['index'] || 0].url;
     var response = {
         version: "1.0",
         response: {
