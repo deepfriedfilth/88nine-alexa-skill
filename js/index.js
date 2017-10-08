@@ -88,6 +88,7 @@ function onIntent(intentRequest, session, callback) {
 
     switch (intentName) {
         case "play":
+            session.attributes['index'] = 0;
             play(intent, session, callback);
             break;
         case "stop":
@@ -104,10 +105,6 @@ function onIntent(intentRequest, session, callback) {
             break;
         case "playLocal":
             session.attributes['index'] = 1;
-            play(intent, session, callback);
-            break;
-        case "playMain":
-            session.attributes['index'] = 0;
             play(intent, session, callback);
             break;
         default:
