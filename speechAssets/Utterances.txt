@@ -4,12 +4,18 @@ play begin playing
 play begin playing music
 play start
 play start music
-play play milwaukee music
-play play local music
-play begin playing milwaukee music
-play begin playing local music
-play to start milwaukee music
-play to start local music
+playLocal play milwaukee music
+playLocal play local music
+playLocal begin playing milwaukee music
+playLocal begin playing local music
+playLocal to start milwaukee music
+playLocal to start local music
+playMain play
+playMain play music
+playMain begin playing
+playMain begin playing music
+playMain start
+playMain start music
 whatSong what song is this
 whatSong who this
 whatSong who dis

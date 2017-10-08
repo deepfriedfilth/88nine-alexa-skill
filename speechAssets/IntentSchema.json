@@ -4,6 +4,12 @@
       "intent": "play"
     },
     {
+      "intent": "playLocal"
+    },
+    {
+      "intent": "playMain"
+    },
+    {
       "intent": "stop"
     },
     {
