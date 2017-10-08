@@ -210,7 +210,7 @@ function stop(intent, session, callback) {
 }
 
 function play(intent, session, callback) {
-    var url = streams[session.attributes['index'] || 0];
+    var url = streams[session.attributes['index'] || 0].url;
     var response = {
         version: "1.0",
         response: {
