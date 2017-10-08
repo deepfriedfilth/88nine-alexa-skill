@@ -110,6 +110,14 @@ function onIntent(intentRequest, session, callback) {
         case "whatSong":
             whatSong(intent, session, callback);
             break;
+        case "playLocal":
+            this.attributes['index'] = 1;
+            play(intent, session, callback);
+            break;
+        case "playMain":
+            this.attributes['index'] = 0;
+            play(intent, session, callback);
+            break;
         default:
             throw "Invalid intent";
     }
@@ -219,6 +227,7 @@ function stop(intent, session, callback) {
 }
 
 function play(intent, session, callback) {
+    var index = streams[this.attributes['index'] || 0];
     var response = {
         version: "1.0",
         response: {

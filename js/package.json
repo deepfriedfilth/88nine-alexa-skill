@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Amazon Alexa skill for interacting with Radio Milwaukee's live streams",
   "main": "index.js",
-  "dependencies": {
-    "xml-parser": "^1.2.1"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "test"
