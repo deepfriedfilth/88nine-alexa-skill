@@ -1,0 +1,31 @@
+{
+  "name": "88nine-alexa-skill",
+  "version": "1.0.0",
+  "description": "Amazon Alexa skill for interacting with Radio Milwaukee's live streams",
+  "main": "index.js",
+  "dependencies": {
+    "xml-parser": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepfriedfilth/88nine-alexa-skill.git"
+  },
+  "keywords": [
+    "88nine",
+    "88.9",
+    "88.9FM",
+    "Radio",
+    "Milwaukee",
+    "Alexa"
+  ],
+  "author": "Crazy Specialist (Steve Johnson + Nathan Kawatski)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deepfriedfilth/88nine-alexa-skill/issues"
+  },
+  "homepage": "https://github.com/deepfriedfilth/88nine-alexa-skill#readme"
+}
