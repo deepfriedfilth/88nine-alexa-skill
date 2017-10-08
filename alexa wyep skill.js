@@ -7,6 +7,18 @@
 "use strict";
 const https = require("https");
 
+const streams = [
+    {
+        'title' : '88nine Stream',
+        'url' : 'https://wyms.streamguys1.com/live',
+        'feed': 'https://radiomilwaukee.org/playlistinfo.php'
+    },
+    {
+        'title' : '414music.fm',
+        'url' : 'https://wyms.streamguys1.com/414music_aac',
+        'feed': 'https://s3.amazonaws.com/radiomilwaukee-playlist/WYMSHD2HIS.XML'
+    }
+];
 
 exports.handler = function(event, context) {
     try {
@@ -115,7 +127,7 @@ function onSessionEnded(sessionEndedRequest, session) {
 }
 
 function whatSong(intent, session, callback) {
-    var surl = "https://radiomilwaukee.org/playlistinfo.php";
+    var surl = streams[this.attributes['index']].feed;
 
     https.get(surl, function(res) {
         var body = "";
@@ -216,7 +228,7 @@ function play(intent, session, callback) {
                 playBehavior: "REPLACE_ALL",
                 audioItem: {
                     stream: {                    
-                        url: "https://wyms.streamguys1.com/live",
+                        url: streams[this.attributes['index']].url,
                         token: "913",
                         expectedPreviousToken: null,
                         offsetInMilliseconds: 0
