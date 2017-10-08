@@ -115,7 +115,7 @@ function onSessionEnded(sessionEndedRequest, session) {
 }
 
 function whatSong(intent, session, callback) {
-    var surl = "https://api.composer.nprstations.org/v1/widget/50e451b6a93e91ee0a00028e/now?format=json";
+    var surl = "https://radiomilwaukee.org/playlistinfo.php";
 
     https.get(surl, function(res) {
         var body = "";
@@ -214,9 +214,8 @@ function play(intent, session, callback) {
                 type: "AudioPlayer.Play",
                 playBehavior: "REPLACE_ALL",
                 audioItem: {
-                    stream: {
-//change this URL to your stream                       
-                        url: "https://playerservices.streamtheworld.com/api/livestream-redirect/WYEPFMAAC.aac",
+                    stream: {                    
+                        url: "https://wyms.streamguys1.com/live",
                         token: "913",
                         expectedPreviousToken: null,
                         offsetInMilliseconds: 0
