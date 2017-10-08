@@ -71,8 +71,8 @@ function onLaunch(launchRequest, session, callback) {
  * Called when the user specifies an intent for this skill.
  */
 function help (intent, session, callback){
-    var cardTitle = "W. Y. E. P. Where the music matters";
-    var speechOutput = "Commands you can say are: Alexa, tell y. e. p. to play.  Alexa, tell y. e. p. to stop.  Alexa, ask y. e. p. what song this is.";
+    var cardTitle = "Radio Milwaukee (insert tagline here)";
+    var speechOutput = "Commands you can say are: Alexa, tell Radio Milwaukee to play.  Alexa, tell Radio Milwaukee to stop.  Alexa, ask Radio Milwaukee what song this is.";
     callback(session.attributes, buildSpeechletResponse(cardTitle, speechOutput, "", true));
 } 
 function onIntent(intentRequest, session, callback) {
