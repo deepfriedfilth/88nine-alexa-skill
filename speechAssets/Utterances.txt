@@ -10,12 +10,12 @@ playLocal begin playing milwaukee music
 playLocal begin playing local music
 playLocal to start milwaukee music
 playLocal to start local music
-playMain play
-playMain play music
-playMain begin playing
-playMain begin playing music
-playMain start
-playMain start music
+playMain play all
+playMain play all music
+playMain start all
+playMain start all music
+playMain begin playing all
+playMain begin playing all music
 whatSong what song is this
 whatSong who this
 whatSong who dis
