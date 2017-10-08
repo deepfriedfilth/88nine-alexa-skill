@@ -64,9 +64,6 @@ exports.handler = function(event, context) {
  * Called when the session starts.
  */
 function onSessionStarted(sessionStartedRequest, session) {
-    console.log("onSessionStarted requestId=" + sessionStartedRequest.requestId +
-        ", sessionId=" + session.sessionId);
-
     // add any session init logic here
 }
 
@@ -74,8 +71,6 @@ function onSessionStarted(sessionStartedRequest, session) {
  * Called when the user invokes the skill without specifying what they want.
  */
 function onLaunch(launchRequest, session, callback) {
-    console.log("onLaunch requestId=" + launchRequest.requestId +
-        ", sessionId=" + session.sessionId);
     play("play", session, callback);
 }
 
@@ -88,9 +83,6 @@ function help (intent, session, callback){
     callback(session.attributes, buildSpeechletResponse(cardTitle, speechOutput, "", true));
 } 
 function onIntent(intentRequest, session, callback) {
-    console.log("onIntent requestId=" + intentRequest.requestId +
-        ", sessionId=" + session.sessionId);
-
     var intent = intentRequest.intent,
         intentName = intentRequest.intent.name;
 
@@ -111,11 +103,11 @@ function onIntent(intentRequest, session, callback) {
             whatSong(intent, session, callback);
             break;
         case "playLocal":
-            this.attributes['index'] = 1;
+            session.attributes['index'] = 1;
             play(intent, session, callback);
             break;
         case "playMain":
-            this.attributes['index'] = 0;
+            session.attributes['index'] = 0;
             play(intent, session, callback);
             break;
         default:
@@ -128,14 +120,11 @@ function onIntent(intentRequest, session, callback) {
  * Is not called when the skill returns shouldEndSession=true.
  */
 function onSessionEnded(sessionEndedRequest, session) {
-    console.log("onSessionEnded requestId=" + sessionEndedRequest.requestId +
-        ", sessionId=" + session.sessionId);
-
     // Add any cleanup logic here
 }
 
 function whatSong(intent, session, callback) {
-    var surl = streams[this.attributes['index']].feed;
+    var surl = streams[session.attributes['index'] || 0].feed;
 
     https.get(surl, function(res) {
         var body = "";
@@ -158,12 +147,6 @@ function whatSong(intent, session, callback) {
     }).on("error", function(e) {
         callback(session.attributes, buildSpeechletResponseWithoutCard("There was an error, please try again later", "", "true"));
     });
-    // callback(session.attributes, buildSpeechletResponseWithoutCard("This song is feel it still by portugal the man", "", "true"));
-}
-
-function favorite(intent, session, callback) {
-    callback(session.attributes,
-        buildSpeechletResponseWithoutCard("This song was added to your favorites", "", "true"));
 }
 
 // ------- Helper functions to build responses -------
@@ -227,7 +210,7 @@ function stop(intent, session, callback) {
 }
 
 function play(intent, session, callback) {
-    var index = streams[this.attributes['index'] || 0];
+    var url = streams[session.attributes['index'] || 0];
     var response = {
         version: "1.0",
         response: {
@@ -236,8 +219,8 @@ function play(intent, session, callback) {
                 type: "AudioPlayer.Play",
                 playBehavior: "REPLACE_ALL",
                 audioItem: {
-                    stream: {                    
-                        url: streams[this.attributes['index']].url,
+                    stream: {
+                        url: url,
                         token: "913",
                         expectedPreviousToken: null,
                         offsetInMilliseconds: 0
